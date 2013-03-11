@@ -18,7 +18,7 @@ go get github.com/qiniu/py
 
 # Example
 
-```
+```{go}
 package main
 
 import (
