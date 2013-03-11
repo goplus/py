@@ -1,2 +1,6 @@
 language: go
+install:
+	- apt-get install python2.7-dev
+	- go get github.com/qiniu/log
+	- go get github.com/qiniu/errors
 
