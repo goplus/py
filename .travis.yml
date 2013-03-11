@@ -1,0 +1,4 @@
+language: go
+before_install:
+	- sudo apt-get install -qq python2.7-dev
+
