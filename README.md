@@ -3,7 +3,7 @@ py - Golang bindings to the CPython C-API
 
 [![Build Status](https://travis-ci.org/qiniu/py.png?branch=master)](https://travis-ci.org/qiniu/py)
 
-![logo](http://qiniutek.com/images/logo-2.png)
+[![Qiniu Logo](http://qiniutek.com/images/logo-2.png)](http://qiniu.com/)
 
 py is Golang bindings to the CPython C-API.
 
