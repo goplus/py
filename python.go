@@ -1,7 +1,7 @@
 package py
 
 /*
-#cgo CFLAGS: -Werror -I/usr/local/include/python2.7
+#cgo CFLAGS: -Werror -I/usr/local/include/python2.7 -I/usr/include/python2.7
 #cgo LDFLAGS: -lpython2.7
 
 #include <Python.h>
