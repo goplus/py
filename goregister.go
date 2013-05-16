@@ -1,5 +1,9 @@
 package py
 
+/*
+#include <Python.h>
+*/
+import "C"
 import "reflect"
 import "strings"
 import "github.com/qiniu/log"
@@ -36,13 +40,29 @@ func sigMatches(got, want reflect.Type) bool {
 
 // ------------------------------------------------------------------------------------------
 
-var typUnaryFunc = reflect.TypeOf(func() (*Base, error)(nil))
-var typBinaryCallFunc = reflect.TypeOf(func(*Tuple) (*Base, error)(nil))
-var typTernaryCallFunc = reflect.TypeOf(func(*Tuple, *Dict) (*Base, error)(nil))
+var typUnaryFunc = reflect.TypeOf((func() (*Base, error))(nil))
+var typBinaryCallFunc = reflect.TypeOf((func(*Tuple) (*Base, error))(nil))
+var typTernaryCallFunc = reflect.TypeOf((func(*Tuple, *Dict) (*Base, error))(nil))
 
-type RegisterCtx []*Closure // 只是让对象不被gc
+// 只是让对象不被gc
+type RegisterCtx struct {
+	ctx       []*Closure
+	methodDef map[string]*C.PyMethodDef
+}
 
-func Register(dict *Dict, nsprefix string, self interface{}) (ctx RegisterCtx) {
+func NewRegisterCtx() (ctx *RegisterCtx) {
+	ctx = new(RegisterCtx)
+	ctx.methodDef = make(map[string]*C.PyMethodDef)
+	return
+}
+
+func (ctx *RegisterCtx) Keep(name string, closure *Closure, d *C.PyMethodDef) {
+	ctx.ctx = append(ctx.ctx, closure)
+	ctx.methodDef[name] = d
+}
+
+func Register(dict *Dict, nsprefix string, self interface{}) (ctx *RegisterCtx) {
+	ctx = NewRegisterCtx()
 
 	typ := reflect.TypeOf(self)
 	selfv := reflect.ValueOf(self)
@@ -61,10 +81,10 @@ func Register(dict *Dict, nsprefix string, self interface{}) (ctx RegisterCtx) {
 		fullname := nsprefix + name
 		if nin == 3 && sigMatches(mtype, typTernaryCallFunc) || nin == 2 && sigMatches(mtype, typBinaryCallFunc) {
 			closure := &Closure{selfv, method.Func}
-			f := closure.NewFunction(fullname, nin, "")
+			f, d := closure.NewFunction(fullname, nin, "")
 			dict.SetItemString(name, f)
 			f.Decref()
-			ctx = append(ctx, closure)
+			ctx.Keep(name, closure, d)
 			log.Debug("Register", fullname)
 		} else {
 			log.Warnf("Invalid signature of method %s, register failed", fullname)
