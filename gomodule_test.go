@@ -2,6 +2,7 @@ package py
 
 import (
 	"fmt"
+        "runtime"
 	"testing"
 )
 
@@ -42,7 +43,7 @@ func _TestGoModule(t *testing.T) {
 		t.Fatal("NewGoModule failed:", err)
 	}
 	defer gomod.Decref()
-
+        runtime.GC()
 	for _, c := range g_gomoduleCases {
 
 		code, err := Compile(c.exp, "", FileInput)

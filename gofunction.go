@@ -12,7 +12,7 @@ import "reflect"
 
 type Closure [2]reflect.Value // closure = self.method
 
-func (closure *Closure) NewFunction(name string, nin int, doc string) *Base {
+func (closure *Closure) NewFunction(name string, nin int, doc string) (*Base, *C.PyMethodDef) {
 
 	d := new(C.PyMethodDef)
 
@@ -32,7 +32,7 @@ func (closure *Closure) NewFunction(name string, nin int, doc string) *Base {
 	defer C.decref(self)
 
 	f := C.PyCFunction_NewEx(d, self, nil)
-	return (*Base)(unsafe.Pointer(f))
+	return (*Base)(unsafe.Pointer(f)), d
 }
 
 //export goClassCallMethodArgs

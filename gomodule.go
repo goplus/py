@@ -9,7 +9,7 @@ import "unsafe"
 
 type GoModule struct {
 	*Module
-	Ctx RegisterCtx
+	Ctx *RegisterCtx
 }
 
 func NewGoModule(name string, doc string, self interface{}) (mod GoModule, err error) {
