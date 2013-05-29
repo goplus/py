@@ -16,7 +16,7 @@ var g_compileCases = []compileCase{
 	{"1+2", "None", FileInput},
 }
 
-func _TestCompile(t *testing.T) {
+func TestCompile(t *testing.T) {
 
 	for _, c := range g_compileCases {
 		code, err := Compile(c.exp, "", c.start)
