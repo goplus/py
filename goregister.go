@@ -60,7 +60,7 @@ func Register(dict *Dict, nsprefix string, self interface{}) (ctx RegisterCtx) {
 		name := mname[3:]
 		fullname := nsprefix + name
 		if nin == 3 && sigMatches(mtype, typTernaryCallFunc) || nin == 2 && sigMatches(mtype, typBinaryCallFunc) {
-			closure := &Closure{selfv, method.Func}
+			closure := &Closure{Self: selfv, Method: method.Func}
 			f := closure.NewFunction(fullname, nin, "")
 			dict.SetItemString(name, f)
 			f.Decref()

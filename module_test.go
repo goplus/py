@@ -19,7 +19,7 @@ def init(cat):
 	`, "foo", "True", "dn_5m_stage"},
 }
 
-func _TestModule(t *testing.T) {
+func TestModule(t *testing.T) {
 
 	for _, c := range g_moduleCases {
 		code, err := Compile(c.exp, "", FileInput)

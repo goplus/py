@@ -35,7 +35,7 @@ foo.bar(1, 'Hello')
 `, "test"},
 }
 
-func _TestGoModule(t *testing.T) {
+func TestGoModule(t *testing.T) {
 
 	gomod, err := NewGoModule("foo", "", new(FooModule))
 	if err != nil {
