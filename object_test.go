@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func _TestBase(t *testing.T) {
+func TestBase(t *testing.T) {
 
 	{
 		v := NewString("Hello!")
