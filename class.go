@@ -31,7 +31,7 @@ func (t *Class) NewNoArgs() (ret *Base, err error) {
 }
 
 // Return value: New reference.
-// Create a new instance of a specific class. The parameters arg and kw are used as 
+// Create a new instance of a specific class. The parameters arg and kw are used as
 // the positional and keyword parameters to the object’s constructor.
 func (t *Class) New(args *Tuple, kw *Dict) (ret *Base, err error) {
 	ret1 := C.PyInstance_New(t.c(), args.c(), kw.c())
@@ -48,4 +48,3 @@ func (t *Class) NewObjArgs(args ...*Base) (ret *Base, err error) {
 func (t *Class) IsSubclass(base *Base) bool {
 	return C.PyClass_IsSubclass(t.c(), base.c()) != 0
 }
-

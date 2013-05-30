@@ -11,8 +11,8 @@ import "unsafe"
 import "reflect"
 
 type Closure struct { // closure = self.method
-	Self reflect.Value
-	Method reflect.Value
+	Self      reflect.Value
+	Method    reflect.Value
 	methodDef C.PyMethodDef
 }
 
@@ -86,4 +86,3 @@ func goClassCallMethodKwds(obj, args, kwds unsafe.Pointer) unsafe.Pointer {
 	ret := out[0].Interface().(*Base)
 	return unsafe.Pointer(ret)
 }
-

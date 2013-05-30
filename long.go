@@ -32,4 +32,3 @@ func AsLong(o *Base) (v *Long, ok bool) {
 func (l *Long) Long() int64 {
 	return int64(C.PyLong_AsLongLong(l.c()))
 }
-

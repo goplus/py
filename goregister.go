@@ -36,9 +36,9 @@ func sigMatches(got, want reflect.Type) bool {
 
 // ------------------------------------------------------------------------------------------
 
-var typUnaryFunc = reflect.TypeOf(func() (*Base, error)(nil))
-var typBinaryCallFunc = reflect.TypeOf(func(*Tuple) (*Base, error)(nil))
-var typTernaryCallFunc = reflect.TypeOf(func(*Tuple, *Dict) (*Base, error)(nil))
+var typUnaryFunc = reflect.TypeOf((func() (*Base, error))(nil))
+var typBinaryCallFunc = reflect.TypeOf((func(*Tuple) (*Base, error))(nil))
+var typTernaryCallFunc = reflect.TypeOf((func(*Tuple, *Dict) (*Base, error))(nil))
 
 type RegisterCtx []*Closure // 只是让对象不被gc
 
@@ -75,4 +75,3 @@ func Register(dict *Dict, nsprefix string, self interface{}) (ctx RegisterCtx) {
 }
 
 // ------------------------------------------------------------------------------------------
-

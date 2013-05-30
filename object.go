@@ -19,7 +19,7 @@ const (
 
 // Base is an 0-sized type that can be embedded as the first item in
 // concrete types to provide the Object interface functions.
-type Base struct {}
+type Base struct{}
 
 func newObject(obj *C.PyObject) *Base {
 	return (*Base)(unsafe.Pointer(obj))
@@ -348,4 +348,3 @@ func (obj *Base) Dir() (*Base, error) {
 }
 
 // PyObject_GetIter : TODO
-
