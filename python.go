@@ -1,6 +1,8 @@
 package py
 
 /*
+#cgo pkg-config: python-2.7
+
 #include <Python.h>
 
 static inline int enterRecursive(char *w) {

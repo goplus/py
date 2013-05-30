@@ -30,11 +30,10 @@ func AsFloat(o *Base) (v *Float, ok bool) {
 }
 
 func NewFloatFromString(s string) *Float {
-        cs := NewString(s)
+	cs := NewString(s)
 	return newFloat(C.PyFloat_FromString((*C.PyObject)(unsafe.Pointer(cs.Obj())), nil))
 }
 
 func (f *Float) Float() float64 {
 	return float64(C.PyFloat_AsDouble(f.c()))
 }
-

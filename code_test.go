@@ -5,8 +5,8 @@ import (
 )
 
 type compileCase struct {
-	exp string
-	ret string
+	exp   string
+	ret   string
 	start StartToken
 }
 
@@ -16,7 +16,7 @@ var g_compileCases = []compileCase{
 	{"1+2", "None", FileInput},
 }
 
-func _TestCompile(t *testing.T) {
+func TestCompile(t *testing.T) {
 
 	for _, c := range g_compileCases {
 		code, err := Compile(c.exp, "", c.start)
@@ -44,16 +44,16 @@ func _TestCompile(t *testing.T) {
 }
 
 type evalLocalGlobalsCase struct {
-	exp string
+	exp     string
 	globals string
-	locals string
-	start StartToken
+	locals  string
+	start   StartToken
 }
 
 var g_evalLocalGlobalsCases = []evalLocalGlobalsCase{
 	{"v=1+2", "{}", "{'v': 3}", FileInput},
 	{"v=1+2", "{}", "{'v': 3}", SingleInput}, // echo
-//	{"v=1+2", "{}", "{'v': 3}", EvalInput}, // compile error
+	//	{"v=1+2", "{}", "{'v': 3}", EvalInput}, // compile error
 }
 
 func _TestEvalLocalGlobals(t *testing.T) {
@@ -85,4 +85,3 @@ func _TestEvalLocalGlobals(t *testing.T) {
 		}
 	}
 }
-

@@ -2,7 +2,7 @@ package py
 
 import (
 	"fmt"
-        "runtime"
+	"runtime"
 	"testing"
 )
 
@@ -25,25 +25,25 @@ func (r *FooModule) Py_bar(args *Tuple) (ret *Base, err error) {
 // ------------------------------------------------------------------------------------------
 
 type gomoduleCase struct {
-	exp string
+	exp  string
 	name string
 }
 
 var g_gomoduleCases = []gomoduleCase{
 	{
-`import foo
+		`import foo
 foo.bar(1, 'Hello')
 `, "test"},
 }
 
-func _TestGoModule(t *testing.T) {
+func TestGoModule(t *testing.T) {
 
 	gomod, err := NewGoModule("foo", "", new(FooModule))
 	if err != nil {
 		t.Fatal("NewGoModule failed:", err)
 	}
 	defer gomod.Decref()
-        runtime.GC()
+	runtime.GC()
 	for _, c := range g_gomoduleCases {
 
 		code, err := Compile(c.exp, "", FileInput)
@@ -61,4 +61,3 @@ func _TestGoModule(t *testing.T) {
 }
 
 // ------------------------------------------------------------------------------------------
-

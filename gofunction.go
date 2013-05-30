@@ -10,12 +10,15 @@ import "C"
 import "unsafe"
 import "reflect"
 
-type Closure [2]reflect.Value // closure = self.method
+type Closure struct { // closure = self.method
+	Self      reflect.Value
+	Method    reflect.Value
+	methodDef C.PyMethodDef
+}
 
-func (closure *Closure) NewFunction(name string, nin int, doc string) (*Base, *C.PyMethodDef) {
+func (closure *Closure) NewFunction(name string, nin int, doc string) *Base {
 
-	d := new(C.PyMethodDef)
-
+	d := &closure.methodDef
 	d.ml_name = C.CString(name)
 	defer C.free(unsafe.Pointer(d.ml_name))
 
@@ -32,7 +35,7 @@ func (closure *Closure) NewFunction(name string, nin int, doc string) (*Base, *C
 	defer C.decref(self)
 
 	f := C.PyCFunction_NewEx(d, self, nil)
-	return (*Base)(unsafe.Pointer(f)), d
+	return (*Base)(unsafe.Pointer(f))
 }
 
 //export goClassCallMethodArgs
@@ -46,8 +49,8 @@ func goClassCallMethodArgs(obj, args unsafe.Pointer) unsafe.Pointer {
 	// type
 	a := (*Tuple)(args)
 
-	in := []reflect.Value{closure[0], reflect.ValueOf(a)}
-	out := closure[1].Call(in)
+	in := []reflect.Value{closure.Self, reflect.ValueOf(a)}
+	out := closure.Method.Call(in)
 
 	err := out[1].Interface()
 	if err != nil {
@@ -71,8 +74,8 @@ func goClassCallMethodKwds(obj, args, kwds unsafe.Pointer) unsafe.Pointer {
 	a := (*Tuple)(args)
 	k := (*Dict)(kwds)
 
-	in := []reflect.Value{closure[0], reflect.ValueOf(a), reflect.ValueOf(k)}
-	out := closure[1].Call(in)
+	in := []reflect.Value{closure.Self, reflect.ValueOf(a), reflect.ValueOf(k)}
+	out := closure.Method.Call(in)
 
 	err := out[1].Interface()
 	if err != nil {
@@ -83,4 +86,3 @@ func goClassCallMethodKwds(obj, args, kwds unsafe.Pointer) unsafe.Pointer {
 	ret := out[0].Interface().(*Base)
 	return unsafe.Pointer(ret)
 }
-

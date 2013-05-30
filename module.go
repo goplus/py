@@ -73,7 +73,7 @@ func (mod *Module) Dict() *Dict {
 	return newDict(ret)
 }
 
-// Return module‘s __name__ value. If the module does not provide one, or if it is not a string, 
+// Return module‘s __name__ value. If the module does not provide one, or if it is not a string,
 // SystemError is raised and NULL is returned.
 func (mod *Module) Name() (string, error) {
 	ret := C.PyModule_GetName(mod.c())

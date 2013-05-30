@@ -1,10 +1,10 @@
 package py
 
 import (
+	"github.com/qiniu/errors"
+	"github.com/qiniu/log"
 	"reflect"
 	"syscall"
-	"github.com/qiniu/log"
-	"github.com/qiniu/errors"
 )
 
 // ------------------------------------------------------------------------------------------
@@ -201,4 +201,3 @@ func ParseV(in *Tuple, out ...interface{}) (err error) {
 }
 
 // ------------------------------------------------------------------------------------------
-
