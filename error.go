@@ -46,7 +46,7 @@ func (e *Error) release() error {
 func (e *Error) Error() string {
 	kind := e.Kind.String()
 	if strings.HasPrefix(kind, "<type 'exceptions.") {
-		kind = kind[18:len(kind)-2]
+		kind = kind[18 : len(kind)-2]
 	}
 	return kind + ": " + e.Value.String()
 }
@@ -156,4 +156,3 @@ func obj2ObjErr(obj *C.PyObject) (*Base, error) {
 	}
 	return newObject(obj), nil
 }
-

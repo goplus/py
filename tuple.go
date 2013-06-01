@@ -81,7 +81,7 @@ func (t *Tuple) Size() int {
 	return int(ret)
 }
 
-// Return the object at position pos in the tuple pointed to by p. If pos is out of bounds, 
+// Return the object at position pos in the tuple pointed to by p. If pos is out of bounds,
 // return NULL and sets an IndexError exception.
 //
 // Return value: Borrowed reference.
@@ -121,4 +121,3 @@ func (t *Tuple) Slice() []*Base {
 	}
 	return s
 }
-

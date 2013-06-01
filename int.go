@@ -40,4 +40,3 @@ func AsInt(o *Base) (v *Int, ok bool) {
 func (i *Int) Int() int {
 	return int(C.PyInt_AsLong(i.c()))
 }
-

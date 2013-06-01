@@ -29,10 +29,10 @@ import "unsafe"
 type StartToken int
 
 const (
-	EvalInput = StartToken(C.Py_eval_input)	// for isolated expressions
+	EvalInput = StartToken(C.Py_eval_input) // for isolated expressions
 
 	FileInput = StartToken(C.Py_file_input) // for sequences of statements as read from a file or other source;
-											// to use when compiling arbitrarily long Python source code.
+	// to use when compiling arbitrarily long Python source code.
 
 	SingleInput = StartToken(C.Py_single_input) // for a single statement; used for the interactive interpreter loop.
 )
@@ -113,12 +113,12 @@ func Run(text string) error {
 
 	t := C.CString(text)
 	defer C.free(unsafe.Pointer(t))
-	
+
 	ret := C.PyRun_SimpleStringFlags(t, nil)
 	return int2Err(ret)
 }
 
-// Return a dictionary of the builtins in the current execution frame, or the interpreter of 
+// Return a dictionary of the builtins in the current execution frame, or the interpreter of
 // the thread state if no frame is currently executing.
 //
 // Return value: Borrowed reference.
@@ -136,7 +136,7 @@ func GetLocals() *Base {
 	return newObject(ret)
 }
 
-// Return a dictionary of the local variables in the current execution frame, 
+// Return a dictionary of the local variables in the current execution frame,
 // or NULL if no frame is currently executing.
 //
 // Return value: Borrowed reference
@@ -146,4 +146,3 @@ func GetGlobals() *Base {
 }
 
 // ------------------------------------------------------------------------------------------
-
