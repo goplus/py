@@ -1,7 +1,7 @@
-py - Golang bindings to the CPython C-API
-==
+Golang bindings to the CPython C-API
+=====
 
-[![Build Status](https://travis-ci.org/qiniu/py.png?branch=master)](https://travis-ci.org/qiniu/py)
+[![Build Status](https://travis-ci.org/qiniu/py.png?branch=master)](https://travis-ci.org/qiniu/py) [![Build Status](https://drone.io/github.com/qiniu/py/status.png)](https://drone.io/github.com/qiniu/py/latest)
 
 [![Qiniu Logo](http://qiniutek.com/images/logo-2.png)](http://qiniu.com/)
 
