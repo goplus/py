@@ -4,7 +4,7 @@ package py
 #include <Python.h>
 #include "gofunction.h"
 
-static inline void decref(PyObject *obj) { Py_DECREF(obj); }
+//static inline void decref(PyObject *obj) { Py_DECREF(obj); }
 */
 import "C"
 import "unsafe"
