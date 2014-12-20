@@ -9,6 +9,9 @@ py is Golang bindings to the CPython C-API.
 
 py project's homepage is: https://github.com/qiniu/py
 
+# Document
+
+See http://godoc.org/github.com/qiniu/py
 
 # Install
 
