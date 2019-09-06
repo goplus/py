@@ -3,7 +3,7 @@ package pyutil
 import (
 	"syscall"
 	"github.com/qiniu/py"
-	"github.com/qiniu/errors"
+	"github.com/qiniu/x/errors"
 )
 
 // ------------------------------------------------------------------------------------------

@@ -9,7 +9,7 @@ import "fmt"
 import "syscall"
 import "strings"
 import "runtime"
-import "github.com/qiniu/errors"
+import "github.com/qiniu/x/errors"
 
 // Error represents a Python exception as a Go struct that implements the
 // error interface.  It allows Go code to handle Python exceptions in an
