@@ -1,4 +1,7 @@
 language: go
 before_install:
   - sudo apt-get install -qq python2.7-dev
-
+install:
+  - export GO111MODULE="on"
+  - go install -v ./...
+  - go test ./...
