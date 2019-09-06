@@ -2,7 +2,7 @@ package py
 
 import "reflect"
 import "strings"
-import "github.com/qiniu/log"
+import "github.com/qiniu/x/log"
 
 // ------------------------------------------------------------------------------------------
 

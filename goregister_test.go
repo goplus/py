@@ -1,7 +1,7 @@
 package py
 
 import (
-	"github.com/qiniu/log"
+	"github.com/qiniu/x/log"
 	"testing"
 )
 

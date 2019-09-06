@@ -1,8 +1,8 @@
 package py
 
 import (
-	"github.com/qiniu/errors"
-	"github.com/qiniu/log"
+	"github.com/qiniu/x/errors"
+	"github.com/qiniu/x/log"
 	"reflect"
 	"syscall"
 )

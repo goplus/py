@@ -2,8 +2,8 @@ package pyutil
 
 import (
 	"testing"
-	"github.com/qiniu/log"
-	"github.com/qiniu/errors"
+	"github.com/qiniu/x/log"
+	"github.com/qiniu/x/errors"
 	"github.com/qiniu/py"
 )
 

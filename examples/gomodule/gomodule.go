@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/qiniu/log"
+	"github.com/qiniu/x/log"
 	"github.com/qiniu/py"
 )
 
