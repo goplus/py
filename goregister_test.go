@@ -1,8 +1,8 @@
 package py
 
 import (
-	"testing"
 	"github.com/qiniu/log"
+	"testing"
 )
 
 func init() {
@@ -18,7 +18,7 @@ func (r *Foo) Py_foo(args *Tuple) (*Base, error) {
 	return IncNone(), nil
 }
 
-func (r *Foo) Py_bar(args *Tuple) (*Base) {
+func (r *Foo) Py_bar(args *Tuple) *Base {
 	return IncNone()
 }
 
@@ -33,4 +33,3 @@ func _TestRegister(t *testing.T) {
 }
 
 // ------------------------------------------------------------------------------------------
-

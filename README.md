@@ -1,14 +1,17 @@
-py - Golang bindings to the CPython C-API
-==
+Golang bindings to the CPython C-API
+=====
 
-[![Build Status](https://travis-ci.org/qiniu/py.png?branch=master)](https://travis-ci.org/qiniu/py)
+[![Build Status](https://travis-ci.org/qiniu/py.png?branch=master)](https://travis-ci.org/qiniu/py) [![GoDoc](https://godoc.org/github.com/qiniu/py?status.svg)](https://godoc.org/github.com/qiniu/py)
 
-[![Qiniu Logo](http://qiniutek.com/images/logo-2.png)](http://qiniu.com/)
+[![Qiniu Logo](http://open.qiniudn.com/logo.png)](http://www.qiniu.com/)
 
 py is Golang bindings to the CPython C-API.
 
 py project's homepage is: https://github.com/qiniu/py
 
+# Document
+
+See http://godoc.org/github.com/qiniu/py
 
 # Install
 
@@ -23,7 +26,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/qiniu/log"
+	"github.com/qiniu/x/log"
 	"github.com/qiniu/py"
 )
 

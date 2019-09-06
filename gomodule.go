@@ -30,9 +30,8 @@ func NewGoModule(name string, doc string, self interface{}) (mod GoModule, err e
 	}
 
 	mod.Module = (*Module)(unsafe.Pointer(m))
-	mod.Ctx = Register(mod.Module.Dict(), name + ".", self)
+	mod.Ctx = Register(mod.Module.Dict(), name+".", self)
 	return
 }
 
 // ------------------------------------------------------------------------------------------
-

@@ -239,8 +239,8 @@ func (d *Dict) MapString() (map[string]*Base, error) {
 
 type DictIter C.Py_ssize_t
 
-// Iterate over all key-value pairs in the dictionary d. 
-// The Py_ssize_t referred to by ppos must be initialized to 0 prior to the first call to this function 
+// Iterate over all key-value pairs in the dictionary d.
+// The Py_ssize_t referred to by ppos must be initialized to 0 prior to the first call to this function
 // to start the iteration; the function returns true for each pair in the dictionary, and false once all
 // pairs have been reported. The parameters pkey and pvalue should either point to PyObject* variables
 // that will be filled in with each key and value, respectively, or may be NULL. Any references returned
@@ -251,4 +251,3 @@ func (d *Dict) Next(pos *DictIter, k, v **Base) bool {
 	v1 := (**C.PyObject)(unsafe.Pointer(v))
 	return C.PyDict_Next(d.c(), (*C.Py_ssize_t)(pos), k1, v1) != 0
 }
-

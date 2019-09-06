@@ -5,7 +5,7 @@ import (
 )
 
 type moduleCase struct {
-	exp string
+	exp                string
 	name, ret, globals string
 }
 
@@ -54,11 +54,10 @@ func TestModule(t *testing.T) {
 			t.Fatal("mod.GetAttrString('tbl') ret:", globals.String(), c.globals)
 		}
 
-		dict := mod.Dict() // don't need Decref
+		dict := mod.Dict()                // don't need Decref
 		tbl2 := dict.GetItemString("tbl") // don't need Decref
 		if tbl2.String() != c.globals {
 			t.Fatal("mod.Dict.GetItemString('tbl') ret:", tbl2.String(), c.globals)
 		}
 	}
 }
-
