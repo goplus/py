@@ -1,4 +1,2 @@
-github.com/qiniu/errors v0.0.0-20140728011245-4aa58a55ece7 h1:JKnNPhBkuZvR06WsblVQFMC14PIEz2M82ViKQJ+l9Qs=
-github.com/qiniu/errors v0.0.0-20140728011245-4aa58a55ece7/go.mod h1:Pkhleme62z3qxDONxDY4y8P2wMw7qAfZEozSyFI9AV8=
 github.com/qiniu/x v8.0.0+incompatible h1:5KRlM4br8QjRrvQq8iZpu8V86tyP2ociSqbSVvAGz7E=
 github.com/qiniu/x v8.0.0+incompatible/go.mod h1:KpRKWYG/GaidPQVpoQ2Cvuvtts3gYnoo2PftgdmAiU4=
