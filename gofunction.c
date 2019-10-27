@@ -1,6 +1,8 @@
 #include <Python.h>
 #include "_cgo_export.h"
 
+
+//setMethod function
 int setMethod(PyMethodDef* d, int nin) {
 	switch (nin) {
 	case 3:
@@ -12,8 +14,8 @@ int setMethod(PyMethodDef* d, int nin) {
 		d->ml_flags = METH_VARARGS;
 		break;
 	default:
-		return -1;
+		return -1; //if nin is not 2 or 3, ... -1 will be returned by the function
 	}
-	return 0;
+	return 0; 
 }
 
