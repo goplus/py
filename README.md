@@ -1,14 +1,11 @@
 py - Golang bindings to the CPython C-API
 ==
 
-[![Build Status](https://travis-ci.org/qiniu/py.png?branch=master)](https://travis-ci.org/qiniu/py)
-
-[![Qiniu Logo](http://qiniutek.com/images/logo-2.png)](http://qiniu.com/)
+NOTE: This project is **unmaintained**. Maybe https://github.com/sbinet/go-python is a good replacement.
 
 py is Golang bindings to the CPython C-API.
 
 py project's homepage is: https://github.com/qiniu/py
-
 
 # Install
 
