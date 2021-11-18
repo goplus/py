@@ -1,7 +1,7 @@
 py - Golang bindings to the CPython C-API
 ==
 
-NOTE: This project is **unmaintained**. Maybe https://github.com/sbinet/go-python is a good replacement.
+**NOTE**: This project is **unmaintained**. Maybe https://github.com/sbinet/go-python is a good replacement.
 
 py is Golang bindings to the CPython C-API.
 
